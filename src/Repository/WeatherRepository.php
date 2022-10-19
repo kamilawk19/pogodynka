@@ -42,9 +42,9 @@ class WeatherRepository extends ServiceEntityRepository
 	
 	public function findByLocation(Location $location)
 	{
-		$qb = $this->createQueryBuilder('weather');
-		$qb->where('weather.location_id = :location')
-			->setParameter('location', $location);
+		$qb = $this->createQueryBuilder('wt');
+		$qb->where('wt.location_id = :Location')
+			->setParameter('Location', $location);
 		$query = $qb->getQuery();
 		$result = $query->getResult();
 		return $result;

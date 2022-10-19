@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Weather in {{location.city}} {% endblock %}
+{% block title %}Weather in {{city|capitalize}}  {% endblock %}
 
 {% block body %}
 <style>
@@ -9,7 +9,8 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>{{location.city}}, {{location.country}}</h1>
+    
+    <h1>Weather in {{city|capitalize}}, {{country}}</h1>
     
     {% for w in weatherStat %}
     <li> {{ w.time|date('d.m.Y') }}: {{ w.getTempAvg() }} &deg;C</li>

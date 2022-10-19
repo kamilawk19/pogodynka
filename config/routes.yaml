@@ -1,5 +1,8 @@
 weather_in_city:
-    path: /weather/{city}
+    path: /weather/{locationId}
     controller: App\Controller\WeatherController::cityAction
     requirements:
-        city: \d+
+        locationId: \d+
+weather_country_city:
+    path: /weather/{country}/{city}
+    controller: App\Controller\WeatherController::countrycityAction

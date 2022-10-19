@@ -16,7 +16,7 @@ class Location
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 2)]
+    #[ORM\Column(length: 20)]
     private ?string $city = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 8)]
@@ -28,7 +28,7 @@ class Location
 	#[ORM\Column(length: 2)]
     private ?string $country = null;
 
-    #[ORM\OneToMany(mappedBy: 'location', targetEntity: Weather::class)]
+    #[ORM\OneToMany(mappedBy: 'location_id', targetEntity: Weather::class)]
     private Collection $weather;
 
     public function __construct()
@@ -84,7 +84,7 @@ class Location
 
     public function setCountry(string $country): self
     {
-        $this->city = $country;
+        $this->country = $country;
 
         return $this;
     }

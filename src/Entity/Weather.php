@@ -54,8 +54,10 @@ class Weather
     private ?int $timezone = null;
 
     #[ORM\ManyToOne(inversedBy: 'weather')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?location $location = null;
+    ##[ORM\ManyToOne(targetEntity: Location::class)]
+    #[ORM\JoinColumn(name: 'location_id', referencedColumnName: 'id')]
+    //#[ORM\JoinColumn(nullable: false)]
+    private ?Location $location_id = null;
 
     public function getId(): ?int
     {
