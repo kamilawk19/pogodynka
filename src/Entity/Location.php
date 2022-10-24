@@ -90,6 +90,15 @@ class Location
     }
 
     /**
+     * Transform to string
+     */
+    public function __toString()
+    {
+        return (string) $this->getCity();
+    }
+
+
+    /**
      * @return Collection<int, Weather>
      */
     public function getWeather(): Collection

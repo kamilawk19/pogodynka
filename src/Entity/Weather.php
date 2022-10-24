@@ -222,13 +222,15 @@ class Weather
 
     public function getLocation(): ?location
     {
-        return $this->location;
+        return $this->location_id;
     }
 
     public function setLocation(?location $location): self
     {
-        $this->location = $location;
+        $this->location_id = $location;
 
         return $this;
     }
+
+    
 }
