@@ -25,7 +25,7 @@ class MeasurementController extends AbstractController
     public function new(Request $request, WeatherRepository $weatherRepository): Response
     {
         $weather = new Weather();
-        $form = $this->createForm(WeatherType::class, $weather);
+        $form = $this->createForm(WeatherType::class, $weather, array('validation_groups' => array('NewWeather')));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,7 +51,7 @@ class MeasurementController extends AbstractController
     #[Route('/{id}/edit', name: 'app_measurement_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Weather $weather, WeatherRepository $weatherRepository): Response
     {
-        $form = $this->createForm(WeatherType::class, $weather);
+        $form = $this->createForm(WeatherType::class, $weather, array('validation_groups' => array('EditWeather')));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

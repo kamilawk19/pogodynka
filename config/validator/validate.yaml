@@ -16,3 +16,29 @@ App\Entity\Location:
             - NotBlank: ~
     city:
           - NotBlank: ~
+App\Entity\Weather:
+  properties:
+    visibility:
+            - Range:
+                min: 0
+                max: 10000
+                notInRangeMessage: Value must be between {{ min }} and {{ max }} meters.
+                groups: [NewWeather, EditWeather]
+    humidity:
+            - Range:
+                min: 0
+                max: 100
+                notInRangeMessage: Value must be between {{ min }} and {{ max }} %.
+                groups: [NewWeather, EditWeather]
+    wind_deg:
+            - Range:
+                min: 0
+                max: 360
+                notInRangeMessage: Value must be between {{ min }} and {{ max }} degrees.
+                groups: [NewWeather, EditWeather]
+    timezone:
+            - Range:
+                min: -11
+                max: 14
+                notInRangeMessage: Value must be between {{ min }} and {{ max }}.
+                groups: [NewWeather, EditWeather]
