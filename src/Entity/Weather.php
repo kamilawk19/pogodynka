@@ -232,5 +232,9 @@ class Weather
         return $this;
     }
 
-    
+    public function ToFahrenheit($c): ?float
+    {
+        $f = (float)(($c * 9 / 5) + 32);
+        return $f;
+    }
 }

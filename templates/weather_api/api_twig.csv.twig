@@ -1,0 +1,4 @@
+Country,City,temp_max,temp_min,temp_avg,weather_name,weather_description
+{% for we in w %}
+{{ country }},{{ city }},{{ we.getTempMax() }},{{ we.getTempMin() }},{{ we.getTempAvg() }},{{ we.getWeatherName() }},{{ we.getWeatherDescription() }}
+{% endfor %}

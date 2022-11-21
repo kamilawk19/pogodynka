@@ -1,0 +1,15 @@
+{
+    "city": {{ city }},
+    "country": {{ country }},
+    "Weather": [
+        {% for we in w %}
+        {
+            "temp_max": {{ we.ToFahrenheit(we.getTempMax)}},
+            "temp_min": {{ we.getTempMin}},
+            "temp_avg": {{ we.getTempAvg}},
+            "weather_name": {{ we.getWeatherName}},
+            "weather_description": {{ we.getWeatherDescription}}
+        }
+        {% endfor %}
+    ]
+}
